@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Nicole Barrios - Diseñadora Gráfica especializada en diseño digital, redes sociales y branding">
+    <meta name="keywords" content="diseño gráfico, portafolio, Nicole Barrios, Barranquilla, diseño digital, branding">
+    <meta name="author" content="Nicole Barrios (Niky)">
+    <title>Niky - Diseñadora Gráfica | Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #1a1a1a;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fff;
+        }
+
+        /* Header y Navegación */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            color: #ecf0f1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Sección Sobre Mí */
+        .about {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Sección Portafolio */
+        .portfolio {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio h2 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sección Servicios */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Sección Contacto */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #ecf0f1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about h2,
+            .portfolio h2,
+            .services h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <nav>
+            <div class="logo">Niky</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre">Sobre Mí</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>Nicole Barrios</h1>
+        <p class="subtitle">Diseñadora Gráfica | Especialista en Diseño Digital</p>
+        <p>Transformo ideas en diseños visuales impactantes. Especializada en branding, diseño de redes sociales y diseño editorial.</p>
+        <a href="#portafolio" class="cta-button">Ver Mi Portafolio</a>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section class="about" id="sobre">
+        <div>
+            <h2>Sobre Mí</h2>
+            <p>Soy Nicole Barrios, diseñadora gráfica con pasión por crear diseños que comunican y conectan. Con experiencia en diseño digital, branding y diseño editorial, ayudo a marcas a expresar su identidad visual de manera única y memorable.</p>
+            <p>Mi enfoque combina creatividad técnica con una comprensión profunda de las necesidades de mis clientes. Cada proyecto es una oportunidad para crear algo extraordinario.</p>
+            <div class="skills">
+                <span class="skill-tag">Diseño Gráfico</span>
+                <span class="skill-tag">Branding</span>
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">Redes Sociales</span>
+                <span class="skill-tag">Diseño Editorial</span>
+                <span class="skill-tag">Ilustración</span>
+            </div>
+        </div>
+        <div class="about-image">
+            Imagen de Perfil
+        </div>
+    </section>
+
+    <!-- Sección Portafolio -->
+    <section class="portfolio" id="portafolio">
+        <div class="portfolio-container">
+            <h2>Mi Portafolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Proyecto 1: Branding</div>
+                    <div class="portfolio-content">
+                        <h3>Identidad Visual - Marca XYZ</h3>
+                        <p>Desarrollo completo de identidad visual incluyendo logo, paleta de colores y guía de marca.</p>
+                        <span class="portfolio-tag">Branding</span>
+                        <span class="portfolio-tag">Logo</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Proyecto 2: Redes Sociales</div>
+                    <div class="portfolio-content">
+                        <h3>Campaña de Redes Sociales</h3>
+                        <p>Diseño de contenido visual para redes sociales con enfoque en engagement y conversión.</p>
+                        <span class="portfolio-tag">Redes Sociales</span>
+                        <span class="portfolio-tag">Social Media</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Proyecto 3: Diseño Editorial</div>
+                    <div class="portfolio-content">
+                        <h3>Diseño Editorial - Revista</h3>
+                        <p>Maquetación y diseño de revista con layout profesional y tipografía cuidada.</p>
+                        <span class="portfolio-tag">Editorial</span>
+                        <span class="portfolio-tag">Maquetación</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section class="services" id="servicios">
+        <h2>Mis Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Branding</h3>
+                <p>Desarrollo de identidad visual completa para tu marca, incluyendo logo, paleta de colores y guía de marca.</p>
+            </div>
+            <div class="service-card">
+                <h3>Diseño de Redes Sociales</h3>
+                <p>Contenido visual atractivo y profesional para tus redes sociales que aumenta engagement.</p>
+            </div>
+            <div class="service-card">
+                <h3>Diseño Editorial</h3>
+                <p>Maquetación profesional de libros, revistas y publicaciones con diseño impactante.</p>
+            </div>
+            <div class="service-card">
+                <h3>UI/UX Design</h3>
+                <p>Diseño de interfaces de usuario intuitivas y atractivas para aplicaciones web y móviles.</p>
+            </div>
+            <div class="service-card">
+                <h3>Ilustración</h3>
+                <p>Ilustraciones personalizadas que dan vida a tus proyectos y comunican tu mensaje.</p>
+            </div>
+            <div class="service-card">
+                <h3>Diseño de Packaging</h3>
+                <p>Diseño de empaques y etiquetas que destacan tu producto en el mercado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <h2>¡Hablemos!</h2>
+            <p>¿Tienes un proyecto en mente? Me encantaría escuchar sobre él. Contáctame y trabajemos juntos para crear algo extraordinario.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:nicole@example.com">nicole@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Teléfono</h3>
+                    <a href="tel:+573001234567">+57 300 123 4567</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Ubicación</h3>
+                    <p>Barranquilla, Colombia</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com" title="Instagram">📷</a>
+                <a href="https://behance.net" title="Behance">🎨</a>
+                <a href="https://linkedin.com" title="LinkedIn">💼</a>
+                <a href="https://github.com" title="GitHub">💻</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nicole Barrios. Todos los derechos reservados. | Diseñadora Gráfica</p>
+    </footer>
+</body>
+</html>
