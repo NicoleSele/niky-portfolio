@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -18,10 +19,12 @@
         }
 
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #f39c12;
-            --light: #ecf0f1;
+            /* Paleta de colores vibrante */
+            --primary: #E22797;        /* Hollywood Cerise - Rosa Magenta */
+            --secondary: #FF6B35;      /* Naranja */
+            --accent: #FD9651;         /* Tangerine - Naranja claro */
+            --light-cream: #FCE9D2;    /* Antique White - Crema */
+            --purple: #9B59B6;         /* Púrpura */
             --dark: #1a1a1a;
             --text: #2c3e50;
             --text-light: #7f8c8d;
@@ -36,13 +39,13 @@
 
         /* Header y Navegación */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(226, 39, 151, 0.3);
         }
 
         nav {
@@ -59,6 +62,10 @@
             font-weight: 700;
             font-family: 'Playfair Display', serif;
             letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--light-cream) 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -70,17 +77,33 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 500;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--light-cream);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-cream);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 50%, var(--secondary) 100%);
             color: white;
             padding: 6rem 2rem;
             text-align: center;
@@ -89,6 +112,25 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
         }
 
         .hero h1 {
@@ -96,13 +138,17 @@
             font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
             font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .hero .subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            color: var(--accent);
+            color: var(--light-cream);
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
 
         .hero p {
@@ -110,27 +156,154 @@
             max-width: 600px;
             margin: 0 auto 2rem;
             line-height: 1.8;
-            color: #ecf0f1;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: var(--secondary);
-            color: white;
+            background-color: var(--light-cream);
+            color: var(--primary);
             padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid var(--secondary);
+            border: 2px solid var(--light-cream);
             cursor: pointer;
             font-size: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button:hover {
             background-color: transparent;
+            color: var(--light-cream);
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Carrusel de Trabajos Destacados */
+        .carousel-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .carousel-section h2 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .carousel-container {
+            position: relative;
+            background: linear-gradient(135deg, var(--light-cream) 0%, rgba(253, 150, 81, 0.1) 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .carousel-item {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .carousel-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(226, 39, 151, 0.3);
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .carousel-content {
+            padding: 1.5rem;
+        }
+
+        .carousel-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .carousel-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-tag {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .carousel-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
         }
 
         /* Sección Sobre Mí */
@@ -166,20 +339,19 @@
         }
 
         .skill-tag {
-            background-color: var(--light);
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-size: 0.95rem;
             font-weight: 600;
-            border: 2px solid var(--primary);
         }
 
         .about-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -188,90 +360,16 @@
             text-align: center;
         }
 
-        /* Sección Portafolio */
-        .portfolio {
-            background-color: var(--light);
+        /* Sección Servicios */
+        .services {
+            background: linear-gradient(135deg, var(--light-cream) 0%, rgba(253, 150, 81, 0.1) 100%);
             padding: 4rem 2rem;
             margin: 4rem 0;
         }
 
-        .portfolio-container {
+        .services-container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .portfolio h2 {
-            font-size: 2.5rem;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .portfolio-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-tag {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Sección Servicios */
-        .services {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
         }
 
         .services h2 {
@@ -293,13 +391,14 @@
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
-            border-left: 5px solid var(--secondary);
+            border-top: 5px solid var(--secondary);
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(226, 39, 151, 0.2);
         }
 
         .service-card h3 {
@@ -315,10 +414,9 @@
 
         /* Sección Contacto */
         .contact {
-            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
             color: white;
             padding: 4rem 2rem;
-            text-align: center;
         }
 
         .contact-container {
@@ -330,12 +428,106 @@
             font-size: 2.5rem;
             font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
+            text-align: center;
         }
 
         .contact p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            color: #ecf0f1;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Formulario de Contacto */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--light-cream) 0%, var(--accent) 100%);
+            color: var(--primary);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Redes Sociales */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-links a:hover {
+            background-color: var(--light-cream);
+            color: var(--primary);
+            transform: translateY(-5px);
+            border-color: var(--light-cream);
         }
 
         .contact-info {
@@ -352,7 +544,7 @@
         }
 
         .contact-item a {
-            color: var(--accent);
+            color: var(--light-cream);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
@@ -360,32 +552,6 @@
 
         .contact-item a:hover {
             color: white;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
         }
 
         /* Footer */
@@ -413,21 +579,44 @@
             }
 
             .about h2,
-            .portfolio h2,
+            .carousel-section h2,
             .services h2,
             .contact h2 {
                 font-size: 2rem;
             }
 
-            .portfolio-grid,
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .carousel-item {
+                flex: 0 0 250px;
             }
 
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            .social-links {
+                gap: 1rem;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-item {
+            animation: slideIn 0.5s ease-out;
         }
     </style>
 </head>
@@ -438,8 +627,8 @@
             <div class="logo">Niky</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#carrusel">Trabajos</a></li>
                 <li><a href="#sobre">Sobre Mí</a></li>
-                <li><a href="#portafolio">Portafolio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -451,7 +640,65 @@
         <h1>Nicole Barrios</h1>
         <p class="subtitle">Diseñadora Gráfica | Especialista en Diseño Digital</p>
         <p>Transformo ideas en diseños visuales impactantes. Especializada en branding, diseño de redes sociales y diseño editorial.</p>
-        <a href="#portafolio" class="cta-button">Ver Mi Portafolio</a>
+        <a href="#carrusel" class="cta-button">Ver Mis Trabajos</a>
+    </section>
+
+    <!-- Carrusel de Trabajos Destacados -->
+    <section class="carousel-section" id="carrusel">
+        <h2>Trabajos Destacados</h2>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-item">
+                    <div class="carousel-image">Proyecto: Identidad Visual - Marca XYZ</div>
+                    <div class="carousel-content">
+                        <h3>Identidad Visual Marca XYZ</h3>
+                        <p>Desarrollo completo de identidad visual incluyendo logo, paleta de colores y guía de marca.</p>
+                        <span class="carousel-tag">Branding</span>
+                        <span class="carousel-tag">Logo</span>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-image">Proyecto: Campaña Redes Sociales</div>
+                    <div class="carousel-content">
+                        <h3>Campaña de Redes Sociales</h3>
+                        <p>Diseño de contenido visual para redes sociales con enfoque en engagement y conversión.</p>
+                        <span class="carousel-tag">Social Media</span>
+                        <span class="carousel-tag">Diseño</span>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-image">Proyecto: Diseño Editorial</div>
+                    <div class="carousel-content">
+                        <h3>Diseño Editorial - Revista</h3>
+                        <p>Maquetación y diseño de revista con layout profesional y tipografía cuidada.</p>
+                        <span class="carousel-tag">Editorial</span>
+                        <span class="carousel-tag">Maquetación</span>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-image">Proyecto: UI Design</div>
+                    <div class="carousel-content">
+                        <h3>Diseño de Interfaz - App Mobile</h3>
+                        <p>Interfaz moderna y funcional para aplicación móvil con experiencia de usuario optimizada.</p>
+                        <span class="carousel-tag">UI/UX</span>
+                        <span class="carousel-tag">App</span>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-image">Proyecto: Packaging</div>
+                    <div class="carousel-content">
+                        <h3>Diseño de Packaging</h3>
+                        <p>Diseño de empaques y etiquetas que destacan el producto en el mercado.</p>
+                        <span class="carousel-tag">Packaging</span>
+                        <span class="carousel-tag">Diseño</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="scrollCarousel(-300)">❮</button>
+                <button class="carousel-btn" onclick="scrollCarousel(300)">❯</button>
+            </div>
+        </div>
     </section>
 
     <!-- Sección Sobre Mí -->
@@ -474,69 +721,35 @@
         </div>
     </section>
 
-    <!-- Sección Portafolio -->
-    <section class="portfolio" id="portafolio">
-        <div class="portfolio-container">
-            <h2>Mi Portafolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Proyecto 1: Branding</div>
-                    <div class="portfolio-content">
-                        <h3>Identidad Visual - Marca XYZ</h3>
-                        <p>Desarrollo completo de identidad visual incluyendo logo, paleta de colores y guía de marca.</p>
-                        <span class="portfolio-tag">Branding</span>
-                        <span class="portfolio-tag">Logo</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Proyecto 2: Redes Sociales</div>
-                    <div class="portfolio-content">
-                        <h3>Campaña de Redes Sociales</h3>
-                        <p>Diseño de contenido visual para redes sociales con enfoque en engagement y conversión.</p>
-                        <span class="portfolio-tag">Redes Sociales</span>
-                        <span class="portfolio-tag">Social Media</span>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">Proyecto 3: Diseño Editorial</div>
-                    <div class="portfolio-content">
-                        <h3>Diseño Editorial - Revista</h3>
-                        <p>Maquetación y diseño de revista con layout profesional y tipografía cuidada.</p>
-                        <span class="portfolio-tag">Editorial</span>
-                        <span class="portfolio-tag">Maquetación</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Sección Servicios -->
     <section class="services" id="servicios">
-        <h2>Mis Servicios</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Branding</h3>
-                <p>Desarrollo de identidad visual completa para tu marca, incluyendo logo, paleta de colores y guía de marca.</p>
-            </div>
-            <div class="service-card">
-                <h3>Diseño de Redes Sociales</h3>
-                <p>Contenido visual atractivo y profesional para tus redes sociales que aumenta engagement.</p>
-            </div>
-            <div class="service-card">
-                <h3>Diseño Editorial</h3>
-                <p>Maquetación profesional de libros, revistas y publicaciones con diseño impactante.</p>
-            </div>
-            <div class="service-card">
-                <h3>UI/UX Design</h3>
-                <p>Diseño de interfaces de usuario intuitivas y atractivas para aplicaciones web y móviles.</p>
-            </div>
-            <div class="service-card">
-                <h3>Ilustración</h3>
-                <p>Ilustraciones personalizadas que dan vida a tus proyectos y comunican tu mensaje.</p>
-            </div>
-            <div class="service-card">
-                <h3>Diseño de Packaging</h3>
-                <p>Diseño de empaques y etiquetas que destacan tu producto en el mercado.</p>
+        <div class="services-container">
+            <h2>Mis Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🎨 Branding</h3>
+                    <p>Desarrollo de identidad visual completa para tu marca, incluyendo logo, paleta de colores y guía de marca.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📱 Redes Sociales</h3>
+                    <p>Contenido visual atractivo y profesional para tus redes sociales que aumenta engagement.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📖 Diseño Editorial</h3>
+                    <p>Maquetación profesional de libros, revistas y publicaciones con diseño impactante.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🖥️ UI/UX Design</h3>
+                    <p>Diseño de interfaces de usuario intuitivas y atractivas para aplicaciones web y móviles.</p>
+                </div>
+                <div class="service-card">
+                    <h3>✏️ Ilustración</h3>
+                    <p>Ilustraciones personalizadas que dan vida a tus proyectos y comunican tu mensaje.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📦 Packaging</h3>
+                    <p>Diseño de empaques y etiquetas que destacan tu producto en el mercado.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -546,32 +759,100 @@
         <div class="contact-container">
             <h2>¡Hablemos!</h2>
             <p>¿Tienes un proyecto en mente? Me encantaría escuchar sobre él. Contáctame y trabajemos juntos para crear algo extraordinario.</p>
+            
+            <!-- Formulario de Contacto -->
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+
+            <!-- Información de Contacto -->
             <div class="contact-info">
                 <div class="contact-item">
-                    <h3>Email</h3>
-                    <a href="mailto:nicole@example.com">nicole@example.com</a>
-                </div>
-                <div class="contact-item">
-                    <h3>Teléfono</h3>
+                    <h3>📞 Teléfono</h3>
                     <a href="tel:+573001234567">+57 300 123 4567</a>
                 </div>
                 <div class="contact-item">
-                    <h3>Ubicación</h3>
+                    <h3>📧 Email</h3>
+                    <a href="mailto:nicole@example.com">nicole@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Ubicación</h3>
                     <p>Barranquilla, Colombia</p>
                 </div>
             </div>
+
+            <!-- Redes Sociales -->
             <div class="social-links">
-                <a href="https://instagram.com" title="Instagram">📷</a>
-                <a href="https://behance.net" title="Behance">🎨</a>
-                <a href="https://linkedin.com" title="LinkedIn">💼</a>
-                <a href="https://github.com" title="GitHub">💻</a>
+                <a href="https://instagram.com" title="Instagram" target="_blank">📷</a>
+                <a href="https://behance.net" title="Behance" target="_blank">🎨</a>
+                <a href="https://linkedin.com" title="LinkedIn" target="_blank">💼</a>
+                <a href="https://github.com" title="GitHub" target="_blank">💻</a>
+                <a href="https://wa.me/573001234567" title="WhatsApp" target="_blank">💬</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Nicole Barrios. Todos los derechos reservados. | Diseñadora Gráfica</p>
+        <p>&copy; 2026 Nicole Barrios. Todos los derechos reservados. | Diseñadora Gráfica | Hecho con ❤️</p>
     </footer>
+
+    <script>
+        // Funcionalidad del Carrusel
+        function scrollCarousel(amount) {
+            const carousel = document.getElementById('carousel');
+            carousel.scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Funcionalidad del Formulario de Contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Crear enlace de WhatsApp
+            const whatsappMessage = `Hola Nicole, mi nombre es ${name}. Mi email es ${email}. Mi mensaje: ${message}`;
+            const whatsappLink = `https://wa.me/573001234567?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Abrir WhatsApp
+            window.open(whatsappLink, '_blank');
+            
+            // Limpiar formulario
+            this.reset();
+            
+            alert('¡Gracias por tu mensaje! Se abrirá WhatsApp para continuar la conversación.');
+        });
+
+        // Smooth scroll para enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
