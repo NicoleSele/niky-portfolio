@@ -181,7 +181,7 @@ section p {
   line-height: 1.8;
 }
 
-/* ===== SECCIONES FULL-WIDTH CON IMAGEN ===== */
+/* ===== SECCIONES FULL-WIDTH ===== */
 .full-width-section {
   width: 100%;
   padding: 5rem 2rem;
@@ -190,37 +190,17 @@ section p {
   align-items: center;
   justify-content: center;
   position: relative;
-  background-size: cover;
-  background-position: center;
-}
-
-.full-width-section .section-content {
-  max-width: 1200px;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-overlay,
-.projects-overlay,
-.cta-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
-  color: white;
-  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #e8dcd8 0%, #e8dcd8 100%);
+  color: var(--dark);
+  padding: 4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 600px;
+  min-height: auto;
   margin-bottom: 0;
 }
 
@@ -228,11 +208,9 @@ section p {
   max-width: 1200px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  position: relative;
-  z-index: 2;
 }
 
 .hero-content {
@@ -243,14 +221,14 @@ section p {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
   font-weight: 900;
-  color: white;
+  color: var(--dark);
   line-height: 1.1;
   letter-spacing: -0.5px;
 }
 
 .hero p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: #666;
   margin-bottom: 2rem;
   line-height: 1.8;
 }
@@ -294,8 +272,26 @@ section p {
   white-space: nowrap;
 }
 
+.hero-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .hero-image-placeholder span {
-  display: none;
+  position: absolute;
+  bottom: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 2;
 }
 
 .hero-image-placeholder p {
@@ -393,56 +389,47 @@ section p {
   margin-bottom: 0;
 }
 
-.services-section h2 {
-  color: white;
-}
-
-.services-section p {
-  color: rgba(255, 255, 255, 0.9);
-}
-
 /* ===== TARJETAS DE SERVICIOS ===== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  background: white;
+  padding: 1.5rem;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--primary);
   text-align: center;
   transition: all 0.3s ease;
   animation: fadeInUp 0.6s ease;
-  backdrop-filter: blur(10px);
 }
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 30px rgba(226, 39, 151, 0.1);
 }
 
 .service-icon {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1rem;
   color: var(--primary);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon svg {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   color: var(--primary);
   stroke: var(--primary);
 }
@@ -456,14 +443,14 @@ section p {
 }
 
 .service-card h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
-  color: white;
+  color: var(--dark);
 }
 
 .service-card p {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.85rem;
+  color: #666;
 }
 
 @keyframes fadeInUp {
@@ -480,14 +467,6 @@ section p {
 /* ===== PROYECTOS SECTION ===== */
 .projects-section {
   margin-bottom: 0;
-}
-
-.projects-section h2 {
-  color: white;
-}
-
-.projects-section p {
-  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== GRID DE PROYECTOS ===== */
