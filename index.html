@@ -1,1096 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio de Nicole Barrios - Diseñadora Gráfica especializada en diseño digital, redes sociales y branding">
-    <meta name="keywords" content="diseño gráfico, portafolio, Nicole Barrios, Barranquilla, diseño digital, branding">
-    <meta name="author" content="Nicole Barrios (Niky)">
-    <title>Niky - Diseñadora Gráfica | Portafolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #E22797;
-            --secondary: #FF6B35;
-            --accent: #FD9651;
-            --light-cream: #FCE9D2;
-            --purple: #9B59B6;
-            --dark: #1a1a1a;
-            --light: #F5F5F5;
-            --text: #2c3e50;
-            --text-light: #7f8c8d;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Header Fijo */
-        header {
-            background: white;
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(226, 39, 151, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .nav-desktop {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-desktop a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-desktop a:hover {
-            color: var(--primary);
-        }
-
-        .nav-desktop a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-desktop a:hover::after {
-            width: 100%;
-        }
-
-        .cta-contact {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-contact:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(226, 39, 151, 0.3);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text);
-        }
-
-        /* Menú Móvil */
-        .nav-mobile {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background: white;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-
-        .nav-mobile.active {
-            display: flex;
-        }
-
-        .nav-mobile a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-mobile a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, #F5F5F5 0%, var(--light-cream) 100%);
-            padding: 4rem 2rem;
-            min-height: calc(100vh - 70px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(30px); }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 20px 40px rgba(226, 39, 151, 0.2);
-        }
-
-        /* Secciones */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: var(--text);
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out forwards;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sección Sobre Mí */
-        .about {
-            background: linear-gradient(135deg, #F5F5F5 0%, var(--light-cream) 100%);
-            margin: 0 -2rem;
-            padding: 4rem 2rem;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .skill-tag {
-            background: white;
-            color: var(--primary);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .cv-download {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        .cv-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(226, 39, 151, 0.3);
-        }
-
-        .about-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 20px 40px rgba(226, 39, 151, 0.2);
-        }
-
-        /* Sección Servicios */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            border-top: 5px solid var(--primary);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out forwards;
-        }
-
-        .service-card:nth-child(2) { animation-delay: 0.1s; }
-        .service-card:nth-child(3) { animation-delay: 0.2s; }
-        .service-card:nth-child(4) { animation-delay: 0.3s; }
-        .service-card:nth-child(5) { animation-delay: 0.4s; }
-        .service-card:nth-child(6) { animation-delay: 0.5s; }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(226, 39, 151, 0.2);
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin: 1rem 0;
-            color: var(--primary);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Sección Proyectos */
-        .projects {
-            background: linear-gradient(135deg, #F5F5F5 0%, var(--light-cream) 100%);
-            margin: 0 -2rem;
-            padding: 4rem 2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out forwards;
-        }
-
-        .project-card:nth-child(2) { animation-delay: 0.1s; }
-        .project-card:nth-child(3) { animation-delay: 0.2s; }
-        .project-card:nth-child(4) { animation-delay: 0.3s; }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(226, 39, 151, 0.2);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .project-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: var(--light-cream);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            font-weight: 600;
-        }
-
-        /* Sección Marcas */
-        .brands {
-            background: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .brands-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .brand-logo {
-            width: 120px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--light-cream) 0%, rgba(253, 150, 81, 0.2) 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--primary);
-            transition: all 0.3s ease;
-            animation: slideInUp 0.8s ease-out forwards;
-        }
-
-        .brand-logo:nth-child(2) { animation-delay: 0.1s; }
-        .brand-logo:nth-child(3) { animation-delay: 0.2s; }
-        .brand-logo:nth-child(4) { animation-delay: 0.3s; }
-        .brand-logo:nth-child(5) { animation-delay: 0.4s; }
-
-        .brand-logo:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(226, 39, 151, 0.2);
-        }
-
-        /* Sección Blog */
-        .blog {
-            background: linear-gradient(135deg, #F5F5F5 0%, var(--light-cream) 100%);
-            margin: 0 -2rem;
-            padding: 4rem 2rem;
-        }
-
-        .blog-carousel {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding-bottom: 1rem;
-        }
-
-        .blog-carousel::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .blog-carousel::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-
-        .blog-card {
-            flex: 0 0 300px;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(226, 39, 151, 0.2);
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .blog-content {
-            padding: 1.5rem;
-        }
-
-        .blog-date {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .blog-content h3 {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-            color: var(--text);
-        }
-
-        .blog-content p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Sección Contacto */
-        .contact {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
-            color: white;
-            margin: 0 -2rem;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .contact h2 {
-            color: white;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--text);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: white;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: white;
-            color: var(--primary);
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-        }
-
-        .contact-item {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .contact-item a {
-            color: var(--light-cream);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .social-links a:hover {
-            background-color: var(--light-cream);
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        /* Botón WhatsApp Flotante */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        /* Botón Ir Arriba */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .scroll-to-top.show {
-            display: flex;
-        }
-
-        .scroll-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem;
-            }
-
-            .nav-desktop {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .whatsapp-btn,
-            .scroll-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-
-            .scroll-to-top {
-                bottom: 80px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Nicole Barrios - Diseñadora Gráfica especializada en Branding, Diseño Digital y Editorial">
+  <meta name="keywords" content="diseño gráfico, portafolio, Nicole Barrios, Barranquilla, diseño digital, branding">
+  <title>Niky - Diseñadora Gráfica | Portafolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Fijo -->
-    <header>
-        <div class="logo">NK</div>
-        <nav class="nav-desktop">
-            <a href="#inicio">Inicio</a>
-            <a href="#sobre">Sobre mí</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-        <a href="#contacto" class="cta-contact">Contacto</a>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">NK</a>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre Mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html" class="btn-contact">Contacto</a>
+      </nav>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
 
-    <!-- Menú Móvil -->
-    <nav class="nav-mobile" id="mobileMenu">
-        <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-        <a href="#sobre" onclick="toggleMenu()">Sobre mí</a>
-        <a href="#servicios" onclick="toggleMenu()">Servicios</a>
-        <a href="#proyectos" onclick="toggleMenu()">Proyectos</a>
-        <a href="#contacto" onclick="toggleMenu()">Contacto</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hola, soy Nicole Barrios</h1>
-                <p>Diseñadora gráfica especializada en crear identidades visuales que comunican, inspiran y generan impacto estratégico para tu marca.</p>
-                <a href="#contacto" class="cta-contact">Empecemos un proyecto</a>
-            </div>
-            <div class="hero-image">
-                Foto Profesional
-            </div>
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="fade-in">Hola, soy Nicole</h1>
+        <p class="fade-in">Diseñadora gráfica especializada en branding, diseño digital y diseño editorial. Transformo ideas en diseños visuales impactantes.</p>
+        <div class="hero-buttons fade-in">
+          <a href="proyectos.html" class="btn btn-primary">Ver Proyectos</a>
+          <a href="contacto.html" class="btn btn-secondary">Contactarme</a>
         </div>
+      </div>
     </section>
 
-    <!-- Sección Sobre Mí -->
-    <section class="about" id="sobre">
+    <!-- SOBRE MÍ PREVIEW -->
+    <section class="container fade-in">
+      <h2>Sobre Mí</h2>
+      <p>Diseñadora gráfica con pasión por crear identidades visuales únicas y memorables</p>
+      <div class="about-section" style="margin-top: 2rem;">
+        <div class="about-image">
+          <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+            Foto
+          </div>
+        </div>
         <div class="about-content">
-            <div class="about-text">
-                <h2>Sobre Mí</h2>
-                <h3>Mi Pasión por el Diseño</h3>
-                <p>Soy Nicole Barrios, diseñadora gráfica con pasión por crear diseños que comunican y conectan. Con experiencia en diseño digital, branding y diseño editorial, ayudo a marcas a expresar su identidad visual de manera única y memorable.</p>
-                <p>Mi enfoque combina creatividad técnica con una comprensión profunda de las necesidades de mis clientes. Cada proyecto es una oportunidad para crear algo extraordinario.</p>
-                <div class="skills">
-                    <span class="skill-tag">Diseño Gráfico</span>
-                    <span class="skill-tag">Branding</span>
-                    <span class="skill-tag">UI/UX</span>
-                    <span class="skill-tag">Redes Sociales</span>
-                    <span class="skill-tag">Diseño Editorial</span>
-                    <span class="skill-tag">Ilustración</span>
-                </div>
-                <a href="cv.pdf" class="cv-download" download>📥 Descargar CV</a>
-            </div>
-            <div class="about-image">
-                Mi Foto
-            </div>
+          <p style="text-align: left; color: #666;">Soy una diseñadora gráfica con experiencia en crear soluciones visuales estratégicas para marcas de todos los tamaños. Me especializo en branding, diseño editorial y diseño web.</p>
+          <a href="sobre-mi.html" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">Conocer Más</a>
         </div>
+      </div>
     </section>
 
-    <!-- Sección Servicios -->
-    <section class="services" id="servicios">
-        <h2>Mis Servicios</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>🎨 Branding</h3>
-                <p>Desarrollo de identidad visual completa para tu marca, incluyendo logo, paleta de colores y guía de marca.</p>
-            </div>
-            <div class="service-card">
-                <h3>📱 Redes Sociales</h3>
-                <p>Contenido visual atractivo y profesional para tus redes sociales que aumenta engagement.</p>
-            </div>
-            <div class="service-card">
-                <h3>📖 Diseño Editorial</h3>
-                <p>Maquetación profesional de libros, revistas y publicaciones con diseño impactante.</p>
-            </div>
-            <div class="service-card">
-                <h3>🖥️ UI/UX Design</h3>
-                <p>Diseño de interfaces de usuario intuitivas y atractivas para aplicaciones web y móviles.</p>
-            </div>
-            <div class="service-card">
-                <h3>✏️ Ilustración</h3>
-                <p>Ilustraciones personalizadas que dan vida a tus proyectos y comunican tu mensaje.</p>
-            </div>
-            <div class="service-card">
-                <h3>📦 Packaging</h3>
-                <p>Diseño de empaques y etiquetas que destacan tu producto en el mercado.</p>
-            </div>
+    <!-- SERVICIOS -->
+    <section class="container fade-in">
+      <h2>Mis Servicios</h2>
+      <p>Soluciones de diseño gráfico adaptadas a tus necesidades</p>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">B</div>
+          <h3>Branding</h3>
+          <p>Creación de identidades visuales completas: logo, paleta de colores, tipografía y guía de marca.</p>
         </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">D</div>
+          <h3>Diseño Digital</h3>
+          <p>Diseño de interfaces, redes sociales, banners y contenido visual para plataformas digitales.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">E</div>
+          <h3>Diseño Editorial</h3>
+          <p>Maquetación de revistas, libros, folletos y materiales impresos con diseño profesional.</p>
+        </div>
+      </div>
+      <a href="servicios.html" class="btn btn-primary" style="display: inline-block; margin-top: 2rem;">Ver Todos los Servicios</a>
     </section>
 
-    <!-- Sección Proyectos -->
-    <section class="projects" id="proyectos">
-        <h2>Mis Proyectos</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">Proyecto: Identidad Visual</div>
-                <div class="project-content">
-                    <h3>Identidad Visual - Marca XYZ</h3>
-                    <p>Desarrollo completo de identidad visual incluyendo logo, paleta de colores y guía de marca.</p>
-                    <span class="project-tag">Branding</span>
-                    <span class="project-tag">Logo</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">Proyecto: Redes Sociales</div>
-                <div class="project-content">
-                    <h3>Campaña de Redes Sociales</h3>
-                    <p>Diseño de contenido visual para redes sociales con enfoque en engagement y conversión.</p>
-                    <span class="project-tag">Social Media</span>
-                    <span class="project-tag">Diseño</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">Proyecto: Editorial</div>
-                <div class="project-content">
-                    <h3>Diseño Editorial - Revista</h3>
-                    <p>Maquetación y diseño de revista con layout profesional y tipografía cuidada.</p>
-                    <span class="project-tag">Editorial</span>
-                    <span class="project-tag">Maquetación</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">Proyecto: UI Design</div>
-                <div class="project-content">
-                    <h3>Diseño de Interfaz - App Mobile</h3>
-                    <p>Interfaz moderna y funcional para aplicación móvil con experiencia de usuario optimizada.</p>
-                    <span class="project-tag">UI/UX</span>
-                    <span class="project-tag">App</span>
-                </div>
-            </div>
+    <!-- PROYECTOS DESTACADOS -->
+    <section class="container fade-in">
+      <h2>Proyectos Destacados</h2>
+      <p>Una selección de mis trabajos más recientes</p>
+      <div class="projects-grid" style="margin-top: 2rem;">
+        <div class="project-card fade-in" data-category="branding">
+          <div class="category">Branding</div>
+          <h3>Proyecto 1</h3>
+          <p>Descripción del proyecto destacado</p>
         </div>
+        <div class="project-card fade-in" data-category="redes-sociales">
+          <div class="category">Redes Sociales</div>
+          <h3>Proyecto 2</h3>
+          <p>Descripción del proyecto destacado</p>
+        </div>
+        <div class="project-card fade-in" data-category="editorial">
+          <div class="category">Editorial</div>
+          <h3>Proyecto 3</h3>
+          <p>Descripción del proyecto destacado</p>
+        </div>
+      </div>
+      <a href="proyectos.html" class="btn btn-primary" style="display: inline-block; margin-top: 2rem;">Ver Todos los Proyectos</a>
     </section>
 
-    <!-- Sección Marcas -->
-    <section class="brands">
-        <h2>Marcas que han confiado en mí</h2>
-        <div class="brands-container">
-            <div class="brand-logo">Brand 1</div>
-            <div class="brand-logo">Brand 2</div>
-            <div class="brand-logo">Brand 3</div>
-            <div class="brand-logo">Brand 4</div>
-            <div class="brand-logo">Brand 5</div>
-        </div>
+    <!-- MARCAS QUE HAN CONFIADO -->
+    <section class="container fade-in" style="background: var(--light-cream); padding: 3rem 0; margin: 3rem 0;">
+      <h2>Marcas que han confiado en mí</h2>
+      <p>Trabajé con empresas y emprendedores de diferentes industrias</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div style="background: white; padding: 2rem; border-radius: 10px; text-align: center; color: #999; font-weight: 600;">Logo 1</div>
+        <div style="background: white; padding: 2rem; border-radius: 10px; text-align: center; color: #999; font-weight: 600;">Logo 2</div>
+        <div style="background: white; padding: 2rem; border-radius: 10px; text-align: center; color: #999; font-weight: 600;">Logo 3</div>
+        <div style="background: white; padding: 2rem; border-radius: 10px; text-align: center; color: #999; font-weight: 600;">Logo 4</div>
+      </div>
     </section>
 
-    <!-- Sección Blog -->
-    <section class="blog" id="blog">
-        <h2>Últimos Artículos</h2>
-        <div class="blog-carousel">
-            <div class="blog-card">
-                <div class="blog-image">Blog Post 1</div>
-                <div class="blog-content">
-                    <div class="blog-date">15 Enero 2025</div>
-                    <h3>5 errores comunes en diseño de marca</h3>
-                    <p>Descubre los errores más frecuentes que cometen las empresas al crear su identidad visual...</p>
-                </div>
-            </div>
-            <div class="blog-card">
-                <div class="blog-image">Blog Post 2</div>
-                <div class="blog-content">
-                    <div class="blog-date">12 Enero 2025</div>
-                    <h3>Cómo crear contenido visual que enganche</h3>
-                    <p>Estrategias probadas para crear contenido visual que capture la atención en redes sociales...</p>
-                </div>
-            </div>
-            <div class="blog-card">
-                <div class="blog-image">Blog Post 3</div>
-                <div class="blog-content">
-                    <div class="blog-date">8 Enero 2025</div>
-                    <h3>Tendencias de diseño 2025</h3>
-                    <p>Las tendencias de diseño que dominarán el 2025 y cómo aplicarlas en tu marca...</p>
-                </div>
-            </div>
-        </div>
+    <!-- CTA FINAL -->
+    <section class="container fade-in" style="background: linear-gradient(135deg, #FF6B35 0%, #E22797 100%); color: white; padding: 3rem 2rem; border-radius: 20px; margin: 3rem 0;">
+      <h2 style="color: white;">¿Tienes un proyecto en mente?</h2>
+      <p style="color: rgba(255, 255, 255, 0.9);">Cuéntame sobre tu proyecto y cómo puedo ayudarte a crear algo increíble.</p>
+      <a href="contacto.html" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">Iniciar Proyecto</a>
     </section>
+  </main>
 
-    <!-- Sección Contacto -->
-    <section class="contact" id="contacto">
-        <h2>¡Hablemos!</h2>
-        <p>¿Tienes un proyecto en mente? Me encantaría escuchar sobre él. Contáctame y trabajemos juntos.</p>
-        
-        <form class="contact-form" id="contactForm">
-            <div class="form-group">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" required placeholder="Tu nombre">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="tu@email.com">
-            </div>
-            <div class="form-group">
-                <label for="message">Mensaje</label>
-                <textarea id="message" name="message" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Enviar por WhatsApp</button>
-        </form>
-
-        <div class="contact-info">
-            <div class="contact-item">
-                <h3>📞 Teléfono</h3>
-                <a href="tel:+573159071188">+57 315 907 1188</a>
-            </div>
-            <div class="contact-item">
-                <h3>📧 Email</h3>
-                <a href="mailto:nicoleselene22@gmail.com">nicoleselene22@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <h3>📍 Ubicación</h3>
-                <p>Barranquilla, Colombia</p>
-            </div>
-        </div>
-
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <a href="mailto:nicoleselene22@gmail.com">nicoleselene22@gmail.com</a>
+        <a href="tel:+573159071188">+57 315 907 1188</a>
+        <a href="#">Barranquilla, Colombia</a>
+      </div>
+      <div class="footer-section">
+        <h3>Redes Sociales</h3>
         <div class="social-links">
-            <a href="https://www.instagram.com/nikicreative_/" title="Instagram" target="_blank">📷</a>
-            <a href="https://www.behance.net/niki-creative" title="Behance" target="_blank">🎨</a>
-            <a href="https://wa.me/573159071188" title="WhatsApp" target="_blank">💬</a>
+          <a href="https://www.instagram.com/nikicreative_/" target="_blank" title="Instagram">I</a>
+          <a href="https://www.behance.net/niki-creative" target="_blank" title="Behance">B</a>
+          <a href="https://wa.me/573159071188" target="_blank" title="WhatsApp">W</a>
         </div>
-    </section>
+      </div>
+      <div class="footer-section">
+        <h3>Navegación</h3>
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre Mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nicole Barrios. Todos los derechos reservados. Diseño y desarrollo por Nicole.</p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Nicole Barrios. Todos los derechos reservados. | Diseñadora Gráfica | Hecho con ❤️</p>
-    </footer>
+  <!-- BOTÓN WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/573159071188?text=Hola%20Nicole,%20me%20gustaría%20conocer%20más%20sobre%20tus%20servicios" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.869 1.171c-1.493.821-2.771 1.993-3.393 3.408-.624 1.41-.779 2.947-.417 4.411.362 1.465 1.194 2.876 2.459 3.954 1.265 1.078 2.846 1.783 4.59 1.973 1.745.19 3.597-.099 5.177-1.345 1.58-1.246 2.764-3.032 3.29-5.042.526-2.01.236-4.203-.814-6.096-.805-1.528-2.038-2.799-3.505-3.632-1.467-.833-3.133-1.223-4.918-1.102zm0-2.982C12.331 2.359 18.337 2.359 21.304 5.326c2.967 2.967 2.967 8.973 0 11.94-2.967 2.967-8.973 2.967-11.94 0-2.967-2.967-2.967-8.973 0-11.94z"/>
+    </svg>
+  </a>
 
-    <!-- Botón WhatsApp Flotante -->
-    <a href="https://wa.me/573159071188?text=Hola%20Nicole%2C%20me%20gustaría%20hablar%20sobre%20un%20proyecto" class="whatsapp-btn" title="Contactar por WhatsApp" target="_blank">
-        💬
-    </a>
+  <!-- BOTÓN IR ARRIBA -->
+  <div class="scroll-to-top">
+    <span style="font-size: 1.5rem;">↑</span>
+  </div>
 
-    <!-- Botón Ir Arriba -->
-    <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</div>
-
-    <script>
-        // Menú Hamburguesa
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
-
-        // Botón Ir Arriba
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Formulario de Contacto
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            const whatsappMessage = `Hola Nicole, mi nombre es ${name}. Mi email es ${email}. Mi mensaje: ${message}`;
-            const whatsappLink = `https://wa.me/573159071188?text=${encodeURIComponent(whatsappMessage)}`;
-            
-            window.open(whatsappLink, '_blank');
-            this.reset();
-        });
-
-        // Smooth scroll para enlaces
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Animaciones de scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.animation = 'slideInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .project-card, .brand-logo').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

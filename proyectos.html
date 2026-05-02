@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyectos de Nicole Barrios - Diseñadora Gráfica">
+  <title>Proyectos | Niky - Diseñadora Gráfica</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">NK</a>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre Mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html" class="btn-contact">Contacto</a>
+      </nav>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 50vh;">
+      <div class="hero-content">
+        <h1 class="fade-in">Mis Proyectos</h1>
+        <p class="fade-in">Explora mi portafolio de trabajos en diseño gráfico, branding y diseño digital</p>
+      </div>
+    </section>
+
+    <!-- FILTROS Y PROYECTOS -->
+    <section class="container fade-in">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="redes-sociales">Redes Sociales</button>
+        <button class="filter-btn" data-filter="editorial">Editorial</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- BRANDING -->
+        <div class="project-card fade-in" data-category="branding" style="background: linear-gradient(135deg, #FFA500 0%, #FF6347 100%);">
+          <div class="category">Branding</div>
+          <h3>Identidad Visual - Café Artesanal</h3>
+          <p>Creación de identidad visual completa para café artesanal boutique</p>
+        </div>
+
+        <div class="project-card fade-in" data-category="branding" style="background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">
+          <div class="category">Branding</div>
+          <h3>Rebranding - Empresa de Consultoría</h3>
+          <p>Renovación completa de identidad visual corporativa</p>
+        </div>
+
+        <!-- REDES SOCIALES -->
+        <div class="project-card fade-in" data-category="redes-sociales" style="background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 100%);">
+          <div class="category">Redes Sociales</div>
+          <h3>Campaña Redes Sociales - Startup Tech</h3>
+          <p>Estrategia visual y diseño de contenido para startup tecnológica</p>
+        </div>
+
+        <div class="project-card fade-in" data-category="redes-sociales" style="background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);">
+          <div class="category">Redes Sociales</div>
+          <h3>Contenido Visual - Influencer</h3>
+          <p>Diseño de contenido visual estratégico para influencer</p>
+        </div>
+
+        <!-- EDITORIAL -->
+        <div class="project-card fade-in" data-category="editorial" style="background: linear-gradient(135deg, #FF6B35 0%, #FFA500 100%);">
+          <div class="category">Editorial</div>
+          <h3>Catálogo de Productos - Tienda Boutique</h3>
+          <p>Diseño y maquetación de catálogo comercial profesional</p>
+        </div>
+
+        <div class="project-card fade-in" data-category="editorial" style="background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);">
+          <div class="category">Editorial</div>
+          <h3>Revista Digital - Lifestyle</h3>
+          <p>Maquetación y diseño editorial para revista digital</p>
+        </div>
+
+        <!-- WEB -->
+        <div class="project-card fade-in" data-category="web" style="background: linear-gradient(135deg, #32CD32 0%, #228B22 100%);">
+          <div class="category">Web</div>
+          <h3>Landing Page - Agencia de Marketing</h3>
+          <p>Diseño de landing page optimizada para conversión</p>
+        </div>
+
+        <div class="project-card fade-in" data-category="web" style="background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);">
+          <div class="category">Web</div>
+          <h3>Diseño Web - E-commerce</h3>
+          <p>Interfaz de tienda online con experiencia de usuario optimizada</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="container fade-in" style="background: linear-gradient(135deg, #FF6B35 0%, #E22797 100%); color: white; padding: 3rem 2rem; border-radius: 20px; margin: 3rem 0; text-align: center;">
+      <h2 style="color: white;">¿Quieres algo así?</h2>
+      <p style="color: rgba(255, 255, 255, 0.9);">Cuéntame sobre tu proyecto y cómo puedo ayudarte a crear algo increíble.</p>
+      <a href="contacto.html" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">Iniciar Proyecto</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <a href="mailto:nicoleselene22@gmail.com">nicoleselene22@gmail.com</a>
+        <a href="tel:+573159071188">+57 315 907 1188</a>
+        <a href="#">Barranquilla, Colombia</a>
+      </div>
+      <div class="footer-section">
+        <h3>Redes Sociales</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/nikicreative_/" target="_blank" title="Instagram">I</a>
+          <a href="https://www.behance.net/niki-creative" target="_blank" title="Behance">B</a>
+          <a href="https://wa.me/573159071188" target="_blank" title="WhatsApp">W</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Navegación</h3>
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre Mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nicole Barrios. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/573159071188?text=Hola%20Nicole,%20me%20gustaría%20conocer%20más%20sobre%20tus%20servicios" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.869 1.171c-1.493.821-2.771 1.993-3.393 3.408-.624 1.41-.779 2.947-.417 4.411.362 1.465 1.194 2.876 2.459 3.954 1.265 1.078 2.846 1.783 4.59 1.973 1.745.19 3.597-.099 5.177-1.345 1.58-1.246 2.764-3.032 3.29-5.042.526-2.01.236-4.203-.814-6.096-.805-1.528-2.038-2.799-3.505-3.632-1.467-.833-3.133-1.223-4.918-1.102zm0-2.982C12.331 2.359 18.337 2.359 21.304 5.326c2.967 2.967 2.967 8.973 0 11.94-2.967 2.967-8.973 2.967-11.94 0-2.967-2.967-2.967-8.973 0-11.94z"/>
+    </svg>
+  </a>
+
+  <!-- BOTÓN IR ARRIBA -->
+  <div class="scroll-to-top">
+    <span style="font-size: 1.5rem;">↑</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
