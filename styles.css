@@ -475,6 +475,8 @@ section p {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
+  max-width: 1200px;
 }
 
 @media (max-width: 768px) {
