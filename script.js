@@ -121,3 +121,46 @@ window.addEventListener('scroll', function() {
     el.style.backgroundPosition = `center ${distance * 0.5}px`;
   });
 });
+
+
+// ===== CARRUSEL INFINITO DE MARCAS =====
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.getElementById('brandsCarousel');
+  const track = document.getElementById('brandsTrack');
+  
+  if (carousel && track) {
+    const logos = Array.from(track.querySelectorAll('.brand-logo'));
+    
+    // Duplicar logos para efecto infinito
+    logos.forEach(logo => {
+      const clone = logo.cloneNode(true);
+      track.appendChild(clone);
+    });
+    
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5;
+    const trackWidth = track.scrollWidth / 2;
+    let isAnimating = true;
+    
+    function animateCarousel() {
+      if (isAnimating) {
+        scrollPosition += scrollSpeed;
+        if (scrollPosition >= trackWidth) {
+          scrollPosition = 0;
+        }
+        track.style.transform = 'translateX(-' + scrollPosition + 'px)';
+      }
+      requestAnimationFrame(animateCarousel);
+    }
+    
+    animateCarousel();
+    
+    carousel.addEventListener('mouseenter', () => {
+      isAnimating = false;
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+      isAnimating = true;
+    });
+  }
+});
