@@ -132,11 +132,11 @@ main {
 
 /* ===== SECCIONES ===== */
 section {
-  padding: 8rem 0;
+  padding: 10rem 0;
   text-align: center;
   position: relative;
   margin: 0;
-  margin-bottom: 6rem;
+  margin-bottom: 10rem;
 }
 
 /* ===== SECCIONES CON FONDO FULL-WIDTH ===== */
@@ -147,9 +147,9 @@ section.full-width {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding: 8rem 2rem;
+  padding: 10rem 2rem;
   margin: 0 !important;
-  margin-bottom: 6rem !important;
+  margin-bottom: 10rem !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -308,16 +308,17 @@ section p {
   justify-content: center;
   margin: 0 auto 1.5rem;
   font-size: 1.5rem;
-  color: var(--primary);
+  color: white;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(226, 39, 151, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 20px;
+  padding: 15px;
+  filter: none;
 }
 
 .service-card h3 {
@@ -800,7 +801,8 @@ footer {
   }
 
   section {
-    padding: 4rem 0;
+    padding: 6rem 0;
+    margin-bottom: 6rem;
   }
 
   section h2 {
