@@ -912,6 +912,58 @@ section p {
   padding: 3rem 2rem;
 }
 
+.brands-carousel {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.brands-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-carousel 20s linear infinite;
+  width: fit-content;
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-logo {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #999;
+  font-weight: 600;
+  min-width: 150px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.brand-logo:hover {
+  box-shadow: 0 5px 20px rgba(226, 39, 151, 0.1);
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .brands-track {
+    gap: 1rem;
+  }
+  
+  .brand-logo {
+    min-width: 120px;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
 /* ===== CTA SECTION ===== */
 .cta-section {
   margin-bottom: 0;
