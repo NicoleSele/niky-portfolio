@@ -504,16 +504,19 @@ section p {
   padding: 3rem 2rem;
 }
 
+.projects-collage-section .container {
+  max-width: 100%;
+  padding: 0;
+}
+
 .collage-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 200px);
+  grid-template-rows: repeat(2, 250px);
   gap: 1.5rem;
   margin-top: 2rem;
   width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 2rem;
 }
 
 .collage-item {
