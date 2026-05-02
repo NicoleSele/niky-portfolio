@@ -916,13 +916,14 @@ section p {
   width: 100%;
   overflow: hidden;
   margin-top: 2rem;
+  position: relative;
 }
 
 .brands-track {
   display: flex;
   gap: 2rem;
-  animation: scroll-carousel 20s linear infinite;
-  width: fit-content;
+  animation: scroll-carousel 30s linear infinite;
+  width: max-content;
 }
 
 @keyframes scroll-carousel {
@@ -930,8 +931,12 @@ section p {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 1rem));
   }
+}
+
+.brands-track:hover {
+  animation-play-state: paused;
 }
 
 .brand-logo {
