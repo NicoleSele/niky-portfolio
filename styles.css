@@ -387,10 +387,16 @@ section p {
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
-  font-size: 1.5rem;
-  color: white;
+  color: var(--primary);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon svg {
+  width: 60px;
+  height: 60px;
+  color: var(--primary);
+  stroke: var(--primary);
 }
 
 .service-icon img {
@@ -760,7 +766,12 @@ footer {
   transition: all 0.3s ease;
   margin: 0;
   color: var(--dark);
-  font-size: 1.5rem;
+}
+
+.social-links a svg {
+  width: 24px;
+  height: 24px;
+  color: var(--dark);
 }
 
 .social-links a.whatsapp-social {
@@ -768,10 +779,18 @@ footer {
   color: white;
 }
 
+.social-links a.whatsapp-social svg {
+  color: white;
+}
+
 .social-links a:hover {
   background: var(--primary);
   color: white;
   transform: translateY(-3px);
+}
+
+.social-links a:hover svg {
+  color: white;
 }
 
 .social-links a.whatsapp-social:hover {
