@@ -137,38 +137,32 @@ section.full-width {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 /* ===== SECCIONES ===== */
 section {
-  padding: 6rem 0;
+  padding: 8rem 0;
   text-align: center;
   position: relative;
 }
 
-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+section.full-width {
+  padding: 8rem 2rem;
 }
 
 section h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--dark);
+  font-weight: 700;
 }
 
 section p {
   font-size: 1rem;
   color: #666;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
 }
 
 /* ===== HERO SECTION ===== */
@@ -273,8 +267,8 @@ section p {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 3rem;
+  margin-top: 4rem;
 }
 
 .service-card {
@@ -331,8 +325,8 @@ section p {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 3rem;
+  margin-top: 4rem;
 }
 
 .project-card {
@@ -785,11 +779,12 @@ footer {
   }
 
   section {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
 
   section h2 {
     font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .hero {
