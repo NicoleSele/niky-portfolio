@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    scrollToTopBtn.addEventListener('click', function() {
+    scrollToTopBtn.innerHTML = '↑';
+    scrollToTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -68,18 +70,18 @@ document.addEventListener('DOMContentLoaded', function() {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       this.classList.add('active');
 
-      // Filtrar proyectos
-      projectCards.forEach(card => {
+      // Filtrar proyectos con animacion mejorada
+      projectCards.forEach((card, index) => {
         const category = card.getAttribute('data-category');
         if (filter === 'todos' || category === filter) {
           card.style.display = 'block';
           setTimeout(() => {
             card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-          }, 10);
+            card.style.transform = 'scale(1) translateY(0)';
+          }, index * 50);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'scale(0.8)';
+          card.style.transform = 'scale(0.95) translateY(10px)';
           setTimeout(() => {
             card.style.display = 'none';
           }, 300);

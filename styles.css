@@ -4,7 +4,7 @@
   --secondary: #FF6B35;
   --accent: #9B59B6;
   --light-cream: #FCE9D2;
-  --dark: #1a1a1a;
+  --dark: #2a2a2a;
   --gray: #f5f5f5;
   --border-color: #e0e0e0;
 }
@@ -129,10 +129,33 @@ main {
   padding: 0 2rem;
 }
 
+/* ===== SECCIONES CON FONDO FULL-WIDTH ===== */
+section.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 /* ===== SECCIONES ===== */
 section {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
+  position: relative;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e0e0e0, transparent);
 }
 
 section h2 {
@@ -317,7 +340,7 @@ section p {
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   min-height: 250px;
   display: flex;
   flex-direction: column;
@@ -329,7 +352,7 @@ section p {
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -367,8 +390,22 @@ section p {
   border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   color: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: -1;
 }
 
 .filter-btn.active {
@@ -377,9 +414,14 @@ section p {
   border-color: var(--primary);
 }
 
+.filter-btn.active::before {
+  left: 0;
+}
+
 .filter-btn:hover {
   border-color: var(--primary);
   color: var(--primary);
+  transform: translateY(-2px);
 }
 
 /* ===== SECCIÓN SOBRE MÍ ===== */
@@ -543,7 +585,7 @@ section p {
 /* ===== BOTÓN IR ARRIBA ===== */
 .scroll-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: 6rem;
   right: 2rem;
   width: 50px;
   height: 50px;
@@ -556,6 +598,8 @@ section p {
   z-index: 998;
   transition: all 0.3s ease;
   opacity: 0;
+  color: white;
+  font-size: 1.5rem;
 }
 
 .scroll-to-top.show {
@@ -610,20 +654,32 @@ footer {
 }
 
 .social-links a {
-  width: 40px;
-  height: 40px;
-  background: var(--primary);
+  width: 50px;
+  height: 50px;
+  background: #e8e8e8;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   margin: 0;
+  color: var(--dark);
+  font-size: 1.5rem;
+}
+
+.social-links a.whatsapp-social {
+  background: var(--primary);
+  color: white;
 }
 
 .social-links a:hover {
-  background: var(--secondary);
+  background: var(--primary);
+  color: white;
   transform: translateY(-3px);
+}
+
+.social-links a.whatsapp-social:hover {
+  background: var(--secondary);
 }
 
 .footer-bottom {
