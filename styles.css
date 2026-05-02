@@ -181,25 +181,58 @@ section p {
   line-height: 1.8;
 }
 
-/* ===== HERO SECTION ===== */
-.hero {
-  background: linear-gradient(135deg, #e8dcd8 0%, #e8dcd8 100%);
-  color: var(--dark);
-  padding: 4rem 2rem;
+/* ===== SECCIONES FULL-WIDTH CON IMAGEN ===== */
+.full-width-section {
+  width: 100%;
+  padding: 5rem 2rem;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: auto;
-  margin-bottom: 3rem;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.full-width-section .section-content {
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-overlay,
+.projects-overlay,
+.cta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  color: white;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  margin-bottom: 0;
 }
 
 .hero-wrapper {
   max-width: 1200px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -210,14 +243,14 @@ section p {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
   font-weight: 900;
-  color: var(--dark);
+  color: white;
   line-height: 1.1;
   letter-spacing: -0.5px;
 }
 
 .hero p {
   font-size: 1rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 2rem;
   line-height: 1.8;
 }
@@ -355,6 +388,19 @@ section p {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== SERVICIOS SECTION ===== */
+.services-section {
+  margin-bottom: 0;
+}
+
+.services-section h2 {
+  color: white;
+}
+
+.services-section p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* ===== TARJETAS DE SERVICIOS ===== */
 .services-grid {
   display: grid;
@@ -364,19 +410,20 @@ section p {
 }
 
 .service-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
   padding: 2rem;
   border-radius: 15px;
-  border: 1px solid var(--border-color);
-  border-top: 4px solid var(--primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   transition: all 0.3s ease;
   animation: fadeInUp 0.6s ease;
+  backdrop-filter: blur(10px);
 }
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(226, 39, 151, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .service-icon {
@@ -411,12 +458,12 @@ section p {
 .service-card h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--dark);
+  color: white;
 }
 
 .service-card p {
   font-size: 0.95rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 @keyframes fadeInUp {
@@ -430,6 +477,19 @@ section p {
   }
 }
 
+/* ===== PROYECTOS SECTION ===== */
+.projects-section {
+  margin-bottom: 0;
+}
+
+.projects-section h2 {
+  color: white;
+}
+
+.projects-section p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* ===== GRID DE PROYECTOS ===== */
 .projects-grid {
   display: grid;
@@ -439,7 +499,7 @@ section p {
 }
 
 .project-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -713,6 +773,24 @@ section p {
 .scroll-to-top:hover {
   background: var(--secondary);
   transform: translateY(-3px);
+}
+
+/* ===== BRANDS SECTION ===== */
+.brands-section {
+  margin-bottom: 0;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  margin-bottom: 0;
+}
+
+.cta-section h2 {
+  color: white;
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== FOOTER ===== */
